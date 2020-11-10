@@ -3,7 +3,7 @@ package lesson06.de.telran;
 public class Book {
     private String title;
     private String author;
-    private int dateOfPublish;
+    public int dateOfPublish;
     private int pages;
 
     public Book(String title, String author, int dateOfPublish, int pages) {

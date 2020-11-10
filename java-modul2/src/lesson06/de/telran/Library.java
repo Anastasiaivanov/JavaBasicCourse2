@@ -31,10 +31,10 @@ public class Library {
         return false;
     }
 
-    public void displayDeleteBook(){
-        System.out.println(books[size-1]);
+    public void displayDeleteBook() {
+        System.out.println(books[size - 1]);
         System.out.println(books[size]);
-        System.out.println(books[size+1]);
+        System.out.println(books[size + 1]);
     }
 
     public Library(int capacity) {
@@ -44,5 +44,38 @@ public class Library {
 
     public int getSize() {
         return size;
+    }
+
+    public void sortBooks() {
+        int count = 0;
+        for (int i = 0; i < books.length - 1; i++) {
+            if (books[i].getDateOfPublish() > books[i + 1].getDateOfPublish()) {
+                Book temp = books[i];
+                books[i] = books[i + 1];
+                books[i + 1] = temp;
+                count++;
+            }
+        }
+        if (count > 0) {
+            sortBooks();
+        }
+    }
+
+    public int binarySearchBooks(Book book) {
+        int bookPosition = -1;
+        int lowIndex = 0;
+        int highIndex = books.length - 1;
+        while (lowIndex <= highIndex) {
+            int middleIndex = (highIndex + lowIndex) / 2;
+            if (book.getDateOfPublish() == books[middleIndex].getDateOfPublish()) {
+                bookPosition = middleIndex;
+                break;
+            } else if (book.getDateOfPublish() < books[middleIndex].getDateOfPublish()) {
+                highIndex = middleIndex - 1;
+            } else if (book.getDateOfPublish() > books[middleIndex].getDateOfPublish()) {
+                lowIndex = middleIndex + 1;
+            }
+        }
+        return bookPosition;
     }
 }
