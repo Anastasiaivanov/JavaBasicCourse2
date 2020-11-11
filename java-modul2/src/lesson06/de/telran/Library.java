@@ -61,18 +61,18 @@ public class Library {
         }
     }
 
-    public int binarySearchBooks(Book book) {
+    public int binarySearchBooks(int dateOfPublish) {
         int bookPosition = -1;
         int lowIndex = 0;
         int highIndex = books.length - 1;
         while (lowIndex <= highIndex) {
             int middleIndex = (highIndex + lowIndex) / 2;
-            if (book.getDateOfPublish() == books[middleIndex].getDateOfPublish()) {
+            if (dateOfPublish == books[middleIndex].getDateOfPublish()) {
                 bookPosition = middleIndex;
                 break;
-            } else if (book.getDateOfPublish() < books[middleIndex].getDateOfPublish()) {
+            } else if (dateOfPublish < books[middleIndex].getDateOfPublish()) {
                 highIndex = middleIndex - 1;
-            } else if (book.getDateOfPublish() > books[middleIndex].getDateOfPublish()) {
+            } else if (dateOfPublish > books[middleIndex].getDateOfPublish()) {
                 lowIndex = middleIndex + 1;
             }
         }

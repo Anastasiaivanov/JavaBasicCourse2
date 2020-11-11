@@ -22,6 +22,6 @@ public class Application {
         myLib.getSize();*/
         myLib.sortBooks();
         myLib.display();
-        System.out.println(myLib.binarySearchBooks(b1));
+        System.out.println(myLib.binarySearchBooks(2010));
     }
 }
