@@ -5,12 +5,24 @@ public class Book {
     private String author;
     public int dateOfPublish;
     private int pages;
+    private Genre genre;
+    private Cover cover;
 
-    public Book(String title, String author, int dateOfPublish, int pages) {
+    public Book(String title, String author, int dateOfPublish, int pages, Genre genre, Cover cover) {
         this.title = title;
         this.author = author;
         this.dateOfPublish = dateOfPublish;
         this.pages = pages;
+        this.genre = genre;
+        this.cover = cover;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public Cover getCover() {
+        return cover;
     }
 
     public String getTitle() {
@@ -47,11 +59,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book{" +
-                "title='" + title + '\'' +
-                ", author='" + author + '\'' +
-                ", dateOfPublish=" + dateOfPublish +
-                ", pages=" + pages +
-                '}';
+        return title +
+                ", author: " + author;
     }
 }

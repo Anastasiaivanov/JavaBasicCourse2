@@ -11,18 +11,43 @@ public class Library {
         System.out.println();
     }
 
-    public boolean addBook(Book kniga) {
+    public void displayBooksByGenre(Genre genre) {
+        for (int i = 0; i < books.length; i++) {
+            Genre temp = books[i].getGenre();
+            if (temp.equals(genre)) {
+                System.out.println("This genre: " + genre + " have this book: " + books[i]);
+            }
+        }
+    }
+    public void displayBooksByCover(Cover cover) {
+        for (int i = 0; i < books.length; i++) {
+            Cover temp = books[i].getCover();
+            if (temp.equals(cover)) {
+                System.out.println("This cover: " + cover + " have this book: " + books[i]);
+            }
+        }
+    }
+    public void displayBooksByAuthor(String author){
+        for (int i = 0; i < books.length; i++) {
+            String temp = books[i].getAuthor();
+            if(temp.equals(author)){
+                System.out.println("This author: " + author + " wrote this book: " + books[i]);
+            }
+        }
+    }
+
+    public boolean addBook(Book book) {
         if (size < books.length) {
-            books[size] = kniga;
+            books[size] = book;
             size++;
             return true;
         }
         return false;
     }
 
-    public boolean deleteBookFromArray(Book kniga) {
+    public boolean deleteBookFromArray(Book book) {
         for (int i = 0; i < size; i++) {
-            if (books[i].equals(kniga)) {
+            if (books[i].equals(book)) {
                 books[i] = books[size - 1];
                 size--;
                 return true;
